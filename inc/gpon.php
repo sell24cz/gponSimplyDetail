@@ -1,7 +1,6 @@
 <?php
 
     include_once ("inc/lib.php");
-
     class gpon {
 	public $znacznik;
 	public $IP;
@@ -26,10 +25,15 @@
 	    $mib = $this->getMib('getSnmpZnacznik');
 	    if( $this->IP != "" && $this->Community != "" && $mib != "")
 	    {
+		snmp_set_oid_output_format(SNMP_OID_OUTPUT_NUMERIC);
 	        $snmp_sn = snmp2_real_walk($this->IP, $this->Community, $mib);
     		$q = "STRING: \"$sn\""; 
     		$b = array_search(strtoupper($q),array_map('strtoupper',$snmp_sn) );
-    		$this->znacznik = trim(substr($b, 34));
+		if( $b != "" )
+		{
+		    $p=explode(".", trim($b));
+    		    $this->znacznik = $p[sizeof($p)-2] . '.'.$p[sizeof($p)-1];
+		}
 	    }
     	    return ($this->znacznik);
 	}
@@ -246,7 +250,7 @@
 		    }
 		}
 	    }
-	    return trim($wynik);
+	    return $wynik;
 	}
 	function getZnacznik()
 	{
