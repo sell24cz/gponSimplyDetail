@@ -12,7 +12,7 @@ include ("inc/gpon.php");
 
 if ( formatujPOST('addServer') == 'Add' AND formatujPOST('ip') != 'NULL' AND formatujPOST('community') != 'NULL' ) {
     
-  mysql_q("insert into setting set ip='".formatujPOST('ip')."',community='".formatujPOST('community')."'  ");
+  mysql_q("insert into setting set ip='".formatujPOST('ip')."',community='".formatujPOST('community')."',model='Dasan'  ");
 
 }
 
