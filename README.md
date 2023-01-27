@@ -29,5 +29,5 @@ IP: 1.1.1.1 community: fsdfer23
 The “SNMP community string” is like a user ID or password that allows access to a router's or other device's statistics.
 
 
+![gpon](https://user-images.githubusercontent.com/83060284/215084623-35cd376b-e7da-40f2-b8bb-826c37da129a.png)
 
-![gpon](https://user-images.githubusercontent.com/83060284/165462717-24d10579-5a32-461b-b24b-844223c823d9.png)
