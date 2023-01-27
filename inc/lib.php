@@ -19,7 +19,7 @@
    $this->host = 'localhost';
    $this->databases = 'gpon';
    $this->user = 'gpon';
-   $this->pass = '6qLPJ7i!w';
+   $this->pass = 'password';
    $this->polacz = mysqli_connect($this->host, $this->user,$this->pass);
    mysqli_select_db($this->polacz, $this->databases);
      }
