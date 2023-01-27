@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="/dasan/js/Chart.bundle.min.js"></script>
+    <script src="/javascript/jquery/jquery.min.js"></script>
+
+
+<!-- CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.css" />
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js"></script>
+
+    <title>Gpon v2.2</title>
+  </head>
+  <body>
+
+
+
+    
+    <div class="container">
+
+
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.php"><img src="img/logo.png" alt="logo" style="width: 100px" ></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <!-- <li class="nav-item active">
+              <a class="nav-link" href="#">Setting <span class="sr-only">(current)</span></a>
+            </li> 
+             <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li> -->
+            <li class="nav-item dropdown " >
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Menu
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" data-toggle="modal" data-target="#add" href="#">Add new device</a>
+
+                <a class="dropdown-item" data-toggle="modal" data-target="#show" href="#">Show device</a>
+              </div>
+
+
+            </li>
+
+          </ul>
+          <form method="POST" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" name="dsnw" type="search" placeholder="Search" aria-label="Search"> &nbsp;
+            <select name="ip" class="form-control mr-sm-2" aria-label=".form-select-lg example">
+
+              {% for key, var in ipOLT %}
+              <option value="{{ipOLT[key]}}">{{ipOLT[key]}}</option>
+              {% endfor %}  
+
+
+            </select>&nbsp;
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+
+
+      <div class="row" style="margin-top: 20px;">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><b>GPON S/N : {{dsnw}} </b> <span style="float: right;">OLT IP: {{ipolt}} <span></h5>
+              <p class="card-text">
+               
+                <table class="table table-hover">
+    
+                  <tbody>
+                    <tr>
+                      <th scope="row">Model</th>
+                      <td>{{model}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" style="background-color: #7FFF00;">Signal</th>
+                      <td style="background-color: #7FFF00;">{{signal}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" style="background-color: #CFE2FF;">Status</th>
+                      <td style="background-color: #CFE2FF;">{{status}} </td>
+                    </tr>
+                  
+                    <tr>
+                      <th scope="row">Onu Profil</th>
+                      <td>{{onuprofil}}</td>
+                    </tr>
+                  
+                    <tr>
+                      <th scope="row">Active Time</th>
+                      <td>{{activetime}}</td>
+                    </tr>
+
+
+                  </tbody>
+                </table>
+
+              </p>
+
+            </div>
+          </div>
+ </div>
+
+
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+
+
+              <p class="card-text">
+               
+                <table class="table table-hover">
+  
+                  <tbody>
+                
+
+                    <tr>
+                      <th scope="row">Deactivation Reason</th>
+                      <td>{{deactivation}}</td>
+                    </tr>
+                  
+                    <tr>
+                      <th scope="row">Onu ID</th>
+                      <td>{{onuid}}</td>
+                    </tr>
+                  
+                    <tr>
+                      <th scope="row">Onu Distance</th>
+                      <td>{{onudistance}}</td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row">Onu Block Status</th>
+                      <td>{{onublockstatus}}</td>
+                    </tr>
+                  
+                    <tr>
+                      <th scope="row">Onu Firmware</th>
+                      <td>{{onufirmware}}</td>
+                    </tr>
+                  
+                    <tr>
+                      <th scope="row">InActiveTime</th>
+                      <td>{{inactivetime}}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Uptime</th>
+                      <td>{{uptime}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </p>
+
+
+            </div>
+          </div>
+        </div>
+          
+
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><b>IP List </b></h5>
+              <p class="card-text">
+               
+
+<ul>
+
+{% for key, var in ip %}
+  <li>{{ ip[key] }}</li>
+{% endfor %}  
+
+</ul>
+
+              </p>
+
+            </div>
+          </div>
+ </div>
+  
+<!--end-->
+</div>
+
+
+<hr>
+
+      <div class="card">
+        <div class="card-header">
+          Signal LIVE
+        </div>
+        <div class="card-body">
+ 
+        <div id="chart-cnt" >
+            <input type="hidden" name="marker" id="marker" value="{{marker}}"/>
+            <input type="hidden" name="ipolt" id="ipolt" value="{{ipolt}}"/>
+            <input type="hidden" name="modelolt" id="modelolt" value="Dasan"/>
+            <input type="hidden" name="sn" id="sn" value="{{dsnw}}"/>
+            <canvas id="myChart" width="80%" height="40"></canvas> 
+        </div>
+        <script type="text/javascript" src="js/script.js"></script>
+        </div>
+      </div>
+
+<hr>
+
+
+
+</div>
+
+
+
+
+<!-- ADD Device -->
+<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add new Gpon/Olt</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="post">
+        <input type="text" class="form-control" name="ip" placeholder="IP" aria-label="IP">
+        <br />
+        <input type="text" class="form-control" name="community" placeholder="Comunity" aria-label="Comunity">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary" value="Add" name="addServer">
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Show device -->
+<div class="modal fade" id="show" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Show device</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+        <select name='ip' class="form-control">
+
+          {% for key, var in ipOLT %}
+          <option value="{{ipOLT[key]}}">{{ipOLT[key]}}</option>
+          {% endfor %}  
+
+        </select>
+     
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary" value="Delete" name="method">
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+      <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!--    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

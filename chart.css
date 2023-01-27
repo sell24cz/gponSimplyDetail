@@ -1,0 +1,111 @@
+canvas {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+.chart-cnt {
+    position: relative;
+    width: 80%;
+    height: 300px;
+    text-align: center;
+}
+#canvasAxis {
+    position: absolute;
+    left:0;
+    top:0;
+    text-align: center;
+}
+canvas {
+    width: 80%;
+    height: 300px;
+
+}
+.chart-legend {
+}
+.chart-legend li {
+    display: inline-block;
+    position: relative;
+    min-height:10px;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border:1px solid #eee;
+    font-size:11px;
+    color:#444;
+    font-family:sans-serif;
+    margin-right:5px;
+    box-shadow:0 1px 2px rgba(0,0,0,0.1);
+    cursor:pointer;
+}
+.chart-legend li:hover {
+    border-color:#ccc;
+    box-shadow:0 0 4px rgba(0,0,0,0.2);
+}
+.chart-legend li[data-show="1"] {
+    opacity: 1
+}
+.chart-legend li[data-show="0"] {
+    opacity: 0.3
+}
+.chart-legend a {
+    display: block;
+    text-decoration: none;
+    color:#444;
+    padding:10px 10px 10px 22px;
+}
+.chart-legend .color {
+    width:10px;
+    height:10px;
+    display: inline-block;
+    position: absolute;
+    left:7px;
+    top:50%;
+    transform:translate(0, -50%);
+    border:1px solid transparent;
+}
+.chart-legend .name {
+    font-weight:normal;
+    margin-left:5px;
+}
+
+.chart-tooltip {
+    position: absolute;
+    left:-999px;
+    top:-999px;
+    padding:15px;
+    background: #303E4D;
+    color:#fff;
+    font-size:12px;
+    font-family:sans-serif;
+    max-width:200px;
+}
+.chart-tooltip .char-tooltip__title {
+    font-size:14px;
+    margin:0;
+    line-height: 1;
+    margin-bottom:10px;
+}
+.chart-tooltip .char-tooltip__body {
+    font-size:11px;
+    line-height: 1.4;
+}
+.chart-tooltip.left::before {
+    width:0;
+    height:0;
+    border:10px solid transparent;
+    top:5px;
+    left:-20px;
+    border-right-color:#303E4D;
+    position: absolute;
+    content:'';
+}
+.chart-tooltip.right::before {
+    width:0;
+    height:0;
+    border:10px solid transparent;
+    top:5px;
+    right:-20px;
+    border-left-color:#303E4D;
+    position: absolute;
+    content:'';
+}
